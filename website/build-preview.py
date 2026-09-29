@@ -82,3 +82,56 @@ body{{margin:0;background:#F7F1E8}}
 
 (ROOT / "full-page-preview.html").write_text(page)
 print("Wrote", ROOT / "full-page-preview.html")
+
+
+# All-in-one version: paste into ONE GHL Custom Code element (full-width section, 0 padding).
+# Photos become <img> tags pointing at PASTE-HERO-PHOTO-URL-HERE / PASTE-ASH-PHOTO-URL-HERE.
+def photo_img(url, alt):
+    return f'<img class="tsh-photo" src="{url}" alt="{alt}">'
+
+
+def code_photo_section(bg, left, right, cols, cls):
+    return f"""
+<div class="tsh"><section class="tsh-photo-sec {cls}" style="background:{bg}">
+  <div class="tsh-photo-row" style="grid-template-columns:{cols}">
+    <div>{left}</div>
+    <div>{right}</div>
+  </div>
+</section></div>"""
+
+
+single_css = """<style>
+.tsh-photo-sec{padding:112px 24px 136px}
+.tsh-photo-sec.tsh-about-sec{padding:128px 24px}
+.tsh-photo-row{max-width:1120px;margin:0 auto;display:grid;gap:72px;align-items:center}
+.tsh-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;background:#C5D1BC}
+@media (max-width:767px){
+  .tsh-photo-sec,.tsh-photo-sec.tsh-about-sec{padding:84px 20px}
+  .tsh-photo-row{grid-template-columns:1fr!important;gap:44px}
+}
+</style>"""
+
+single = "\n".join(
+    [
+        "<!-- Three Sixty Health website: ALL-IN-ONE. Paste into one Custom Code element. -->",
+        block("00-global-styles.html"),
+        single_css,
+        block("01-header.html"),
+        code_photo_section("#4A5D45", block("02-hero-TEXT.html"),
+                           photo_img("PASTE-HERO-PHOTO-URL-HERE", "Ash, functional nutritionist"),
+                           "58fr 42fr", ""),
+        block("03-sound-familiar.html"),
+        block("04-the-360-approach.html"),
+        code_photo_section("#F7F1E8",
+                           photo_img("PASTE-ASH-PHOTO-URL-HERE", "Portrait of Ash"),
+                           block("05-about-ash-TEXT.html"), "42fr 58fr", "tsh-about-sec"),
+        block("06-services.html"),
+        block("07-how-it-works.html"),
+        block("08-outcomes-and-fit.html"),
+        block("09-client-stories.html"),
+        block("10-faq.html"),
+        block("11-final-cta-and-footer.html"),
+    ]
+)
+(ROOT / "ghl-all-in-one.html").write_text(single)
+print("Wrote", ROOT / "ghl-all-in-one.html")

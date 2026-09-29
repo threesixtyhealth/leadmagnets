@@ -4,6 +4,17 @@ This folder holds the Three Sixty Health homepage as paste-in code for GoHighLev
 
 The design uses the **Soft Earth** brand palette: Moss `#4A5D45`, Butter `#FFF6BF`, Lilac `#E6C8F2`, Linen `#F7F1E8`, Eucalyptus `#C5D1BC` and Terracotta `#D9774A` (buttons only), with Inter throughout.
 
+## Quick option: paste the whole site in one go
+
+`ghl-all-in-one.html` is the entire page in a single file, styles included.
+
+1. Create a blank page, add a full-width section with **0 padding**, add one row and one column (also 0 padding), and drop in a **Custom Code** element.
+2. Open `ghl-all-in-one.html`, copy everything, paste it into the Custom Code element and save.
+3. Find and replace the placeholders in Step 4 below, plus `PASTE-HERO-PHOTO-URL-HERE` and `PASTE-ASH-PHOTO-URL-HERE` (upload two 4:5 photos to GHL Media and copy their URLs).
+4. Clear the yellow tags (Step 5).
+
+This is the fastest route. The trade-off is that photos and copy are edited in code rather than with GHL's visual editor. If you'd rather edit visually, use the section-by-section build below instead.
+
 ## Step 1: Global styles
 
 Create a new Website (or Funnel) page and start from a blank page. Open the page's Settings, go to Tracking Code, and paste all of `ghl-blocks/00-global-styles.html` into the Header Code box. Every block depends on it. Add your Meta pixel and your SEO title and description while you're there.
