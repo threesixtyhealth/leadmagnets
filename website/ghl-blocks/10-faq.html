@@ -1,0 +1,53 @@
+<div class="tsh">
+<style>
+.tsh-faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.tsh-faq details{border-bottom:1px solid var(--line-light)}
+.tsh-faq details:first-child{border-top:1px solid var(--line-light)}
+.tsh-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.tsh-faq summary::-webkit-details-marker{display:none}
+.tsh-faq summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line-light);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;transition:transform .25s ease,background .25s ease}
+.tsh-faq details[open] summary::after{transform:rotate(45deg);background:var(--lilac)}
+.tsh-faq details p{padding:0 56px 26px 0;font-size:16px;opacity:.88}
+@media (max-width:900px){.tsh-faq-grid{grid-template-columns:1fr;gap:32px}.tsh-faq details p{padding-right:0}.tsh-faq summary{font-size:17px}}
+</style>
+<section class="tsh-sec tsh-linen" id="faq">
+  <div class="tsh-wrap tsh-faq-grid">
+    <div class="tsh-reveal">
+      <span class="tsh-eyebrow">FAQ</span>
+      <h2>Questions, <em>answered.</em></h2>
+      <p class="tsh-lede">Still wondering about something? Bring it to your free discovery call. That&rsquo;s what it&rsquo;s for.</p>
+      <div class="tsh-btns"><a class="tsh-btn" href="PASTE-BOOKING-URL-HERE">Book a free call</a></div>
+    </div>
+    <div class="tsh-faq tsh-reveal">
+      <details open>
+        <summary>What happens on the discovery call?</summary>
+        <p>We&rsquo;ll chat about your symptoms, history and goals. I&rsquo;ll share what I think could be going on and whether working together makes sense. There&rsquo;s no pressure to sign up.</p>
+      </details>
+      <details>
+        <summary>Do I need recent blood tests?</summary>
+        <p>Recent results are a great starting point. If you don&rsquo;t have any, or they&rsquo;re missing key markers, I&rsquo;ll guide you on what to ask for. <span class="tbc">Confirm how clients get their bloods done</span></p>
+      </details>
+      <details>
+        <summary>What are &lsquo;functional ranges&rsquo;?</summary>
+        <p>Standard lab ranges are built to flag disease, so they&rsquo;re wide. Functional ranges are narrower and help spot early imbalances, which is why you can feel unwell even when your results come back &lsquo;normal&rsquo;.</p>
+      </details>
+      <details>
+        <summary>Are sessions online?</summary>
+        <p>Yes. Consults and check-ins happen online, so you can work with me from home, wherever you are. <span class="tbc">Confirm online/in-person options</span></p>
+      </details>
+      <details>
+        <summary>How soon will I feel a difference?</summary>
+        <p>Everyone is different. Many women notice changes in energy and digestion within the first few weeks, while deeper hormone work takes longer. We track your progress every week.</p>
+      </details>
+      <details>
+        <summary>Can I work with you alongside my GP?</summary>
+        <p>Absolutely. This work complements your medical care. It doesn&rsquo;t replace it. Keep your GP in the loop, and never stop prescribed medication without their advice.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>It depends on the support you need. I&rsquo;ll walk you through the options and investment on your discovery call. <span class="tbc">Or add pricing here</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+</div>

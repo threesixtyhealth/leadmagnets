@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Sixty Health</title>
+<meta name="description" content="Functional nutrition for women. Functional blood analysis, personalised protocols and weekly 1:1 support.">
+<!-- Three Sixty Health website: global styles.
+     Paste ALL of this into the funnel/website step's Settings > Tracking Code > Header Code.
+     Every block depends on it. Styles are scoped under .tsh so they won't clash with GHL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+.tsh{
+  --moss:#4A5D45;--moss-deep:#3B4A37;--butter:#FFF6BF;--lilac:#E6C8F2;
+  --linen:#F7F1E8;--euc:#C5D1BC;--terra:#D9774A;--terra-dark:#C2623A;
+  --line-dark:rgba(247,241,232,.18);--line-light:rgba(74,93,69,.16);
+  font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.65;
+  color:var(--moss);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.tsh *,.tsh *::before,.tsh *::after{box-sizing:border-box;margin:0;padding:0}
+.tsh img{max-width:100%;display:block}
+.tsh a{color:inherit}
+
+/* Layout */
+.tsh-sec{padding:128px 0;position:relative;overflow:hidden}
+.tsh-sec.tsh-tight{padding:88px 0}
+.tsh-wrap{max-width:1168px;margin:0 auto;padding:0 24px}
+.tsh-narrow{max-width:760px;margin-left:auto;margin-right:auto}
+.tsh-center{text-align:center}
+.tsh-center .tsh-lede{margin-left:auto;margin-right:auto}
+
+/* Backgrounds: one dominant background per section */
+.tsh-moss{background:var(--moss);color:var(--butter)}
+.tsh-linen{background:var(--linen);color:var(--moss)}
+.tsh-euc{background:var(--euc);color:var(--moss)}
+
+/* Type */
+.tsh-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:300;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px}
+.tsh-eyebrow::before{content:"";width:28px;height:2px;background:var(--lilac);border-radius:2px}
+.tsh-linen .tsh-eyebrow::before,.tsh-euc .tsh-eyebrow::before{background:var(--terra)}
+.tsh h1,.tsh h2,.tsh h3,.tsh h4{font-weight:700;letter-spacing:-.035em;line-height:1}
+.tsh h1{font-size:clamp(42px,6.2vw,76px);line-height:.94;letter-spacing:-.045em}
+.tsh h2{font-size:clamp(34px,4.6vw,56px);line-height:.98;margin-bottom:24px}
+.tsh h3{font-size:22px;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px}
+.tsh h1 em,.tsh h2 em{font-style:italic;font-weight:300;letter-spacing:-.02em}
+.tsh-moss h1 em,.tsh-moss h2 em{color:var(--lilac)}
+.tsh-linen h1 em,.tsh-linen h2 em,.tsh-euc h2 em{color:var(--terra)}
+.tsh-lede{font-size:clamp(18px,1.6vw,21px);font-style:italic;font-weight:300;line-height:1.55;max-width:620px;opacity:.95}
+.tsh p+p{margin-top:16px}
+.tsh strong{font-weight:600}
+
+/* Buttons */
+.tsh-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;align-items:center}
+.tsh-center .tsh-btns{justify-content:center}
+.tsh-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;border-radius:999px;background:var(--terra);color:var(--linen)!important;font-size:15px;font-weight:600;letter-spacing:.02em;text-decoration:none;border:2px solid var(--terra);transition:transform .2s ease,background .2s ease,box-shadow .2s ease;box-shadow:0 10px 28px -12px rgba(217,119,74,.7)}
+.tsh-btn:hover{background:var(--terra-dark);border-color:var(--terra-dark);transform:translateY(-2px)}
+.tsh-btn .tsh-arrow{transition:transform .2s ease}
+.tsh-btn:hover .tsh-arrow{transform:translateX(4px)}
+.tsh-btn-ghost{background:transparent;box-shadow:none;border-color:currentColor}
+.tsh-moss .tsh-btn-ghost{color:var(--butter)!important}
+.tsh-linen .tsh-btn-ghost,.tsh-euc .tsh-btn-ghost{color:var(--moss)!important}
+.tsh-btn-ghost:hover{background:rgba(255,255,255,.08);border-color:currentColor}
+.tsh-microcopy{font-size:13px;font-weight:300;letter-spacing:.02em;opacity:.8;margin-top:14px}
+
+/* Pills / ticks */
+.tsh-pills{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:40px;font-size:14px;font-weight:400}
+.tsh-pills span{display:inline-flex;align-items:center;gap:8px}
+.tsh-tick{flex:none;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--lilac);color:var(--moss);font-size:11px;font-weight:700}
+.tsh-linen .tsh-tick,.tsh-euc .tsh-tick{background:var(--moss);color:var(--butter)}
+
+/* Cards and grids */
+.tsh-grid{display:grid;gap:20px}
+.tsh-g2{grid-template-columns:repeat(2,1fr)}
+.tsh-g3{grid-template-columns:repeat(3,1fr)}
+.tsh-g4{grid-template-columns:repeat(4,1fr)}
+.tsh-card{border-radius:22px;padding:34px 30px;background:#fff;border:1px solid var(--line-light)}
+.tsh-moss .tsh-card{background:rgba(247,241,232,.06);border-color:var(--line-dark)}
+.tsh-card-euc{background:var(--euc)!important;border-color:transparent!important}
+.tsh-card-moss{background:var(--moss)!important;color:var(--butter);border-color:transparent!important}
+.tsh-card p{font-size:16px;opacity:.9}
+.tsh-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--linen);color:var(--moss);margin-bottom:22px}
+.tsh-moss .tsh-icon{background:var(--lilac)}
+.tsh-icon svg{width:24px;height:24px}
+.tsh-num{font-size:13px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;opacity:.75;margin-bottom:18px;display:block}
+.tsh-head{margin-bottom:56px}
+.tsh-rule{height:1px;background:var(--line-light);border:0;margin:56px 0}
+.tsh-moss .tsh-rule{background:var(--line-dark)}
+
+/* Quote */
+.tsh-quote{font-size:clamp(22px,2.6vw,30px);font-style:italic;font-weight:300;line-height:1.3;letter-spacing:-.01em}
+
+/* Placeholder tags: search class="tbc" and replace before publishing */
+.tsh .tbc{display:inline-block;background:#FFE66B;color:#3B3000;font-style:normal;font-size:12px;font-weight:600;letter-spacing:.02em;line-height:1.3;padding:3px 8px;border-radius:6px;vertical-align:middle}
+
+/* Reveal on scroll (progressive: content is visible without JS) */
+.tsh-js .tsh-reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.tsh-js .tsh-reveal.tsh-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.tsh-js .tsh-reveal{opacity:1;transform:none;transition:none}.tsh-btn{transition:none}}
+
+/* Responsive */
+@media (max-width:980px){
+  .tsh-g4{grid-template-columns:repeat(2,1fr)}
+  .tsh-g3{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  .tsh{font-size:16px}
+  .tsh-sec{padding:84px 0}
+  .tsh-sec.tsh-tight{padding:64px 0}
+  .tsh-wrap{padding:0 20px}
+  .tsh-g2,.tsh-g4{grid-template-columns:1fr}
+  .tsh-head{margin-bottom:40px}
+  .tsh-card{padding:28px 24px}
+  .tsh-btn{width:100%}
+  .tsh-btns{margin-top:28px}
+}
+</style>
+<script>
+(function(){
+  document.documentElement.classList.add('tsh-js');
+  function run(){
+    var els=document.querySelectorAll('.tsh-reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('tsh-in')});return}
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('tsh-in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run)}else{run()}
+  // GHL builds some sections after load; catch late ones.
+  setTimeout(run,1200);setTimeout(run,3500);
+})();
+</script>
+
+<style>
+body{margin:0;background:#F7F1E8}
+/* Emulates GHL section/row/column settings for the photo sections */
+.pv-photo-sec{padding:var(--pt) 24px var(--pb)}
+.pv-row{max-width:1120px;margin:0 auto;display:grid;gap:72px;align-items:center}
+.pv-photo{width:100%;border-radius:20px;background:#C5D1BC;display:flex;align-items:center;justify-content:center;text-align:center;font:14px/1.5 Inter,Arial,sans-serif;color:#4A5D45;border:2px dashed rgba(74,93,69,.35)}
+@media (max-width:767px){
+  .pv-photo-sec{padding:84px 20px}
+  .pv-row{grid-template-columns:1fr!important;gap:44px}
+}
+</style>
+</head>
+<body>
+<div class="tsh">
+<style>
+.tsh-header{background:var(--linen);border-bottom:1px solid var(--line-light)}
+.tsh-header .tsh-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:88px}
+.tsh-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.tsh-logo img{width:58px;height:58px}
+.tsh-logo span{font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+.tsh-nav{display:flex;align-items:center;gap:34px}
+.tsh-nav a{font-size:14px;font-weight:400;text-decoration:none;position:relative}
+.tsh-nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:1.5px;width:0;background:var(--terra);transition:width .25s ease}
+.tsh-nav a:hover::after{width:100%}
+.tsh-header .tsh-btn{padding:13px 22px;font-size:14px;box-shadow:none}
+.tsh-float{display:none}
+@media (max-width:900px){.tsh-nav{display:none}}
+@media (max-width:767px){
+  .tsh-header .tsh-wrap{height:72px}
+  .tsh-logo img{width:48px;height:48px}
+  .tsh-logo span{display:none}
+  .tsh-header .tsh-btn{width:auto;padding:11px 18px;font-size:13px}
+  .tsh-float{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;width:auto!important;box-shadow:0 14px 34px -10px rgba(59,74,55,.55)}
+}
+</style>
+<header class="tsh-header">
+  <div class="tsh-wrap">
+    <a class="tsh-logo" href="#top" aria-label="Three Sixty Health home">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAtGVYSWZJSSoACAAAAAYAEgEDAAEAAAABAAAAGgEFAAEAAABWAAAAGwEFAAEAAABeAAAAKAEDAAEAAAACAAAAEwIDAAEAAAABAAAAaYcEAAEAAABmAAAAAAAAAGAAAAABAAAAYAAAAAEAAAAGAACQBwAEAAAAMDIxMAGRBwAEAAAAAQIDAACgBwAEAAAAMDEwMAGgAwABAAAA//8AAAKgBAABAAAA9AEAAAOgBAABAAAA9AEAAAAAAAAA4cNEAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFSmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI2LTA1LTEzPC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkRhdGE+eyZxdW90O2RvYyZxdW90OzomcXVvdDtEQUdCNkVkRkRQVSZxdW90OywmcXVvdDt1c2VyJnF1b3Q7OiZxdW90O1VBRkd3OUs1eXFNJnF1b3Q7LCZxdW90O2JyYW5kJnF1b3Q7OiZxdW90O0FzaCBEYXZpbGEmIzM5O3MgVGVhbSZxdW90O308L0F0dHJpYjpEYXRhPgogICAgIDxBdHRyaWI6RXh0SWQ+NWViNTJkNjYtZDBiNS00NzE3LWE3NWItZjlkYTdjYzJlODYyPC9BdHRyaWI6RXh0SWQ+CiAgICAgPEF0dHJpYjpGYklkPjUyNTI2NTkxNDE3OTU4MDwvQXR0cmliOkZiSWQ+CiAgICAgPEF0dHJpYjpUb3VjaFR5cGU+MjwvQXR0cmliOlRvdWNoVHlwZT4KICAgIDwvcmRmOmxpPgogICA8L3JkZjpTZXE+CiAgPC9BdHRyaWI6QWRzPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpkYz0naHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8nPgogIDxkYzp0aXRsZT4KICAgPHJkZjpBbHQ+CiAgICA8cmRmOmxpIHhtbDpsYW5nPSd4LWRlZmF1bHQnPkxvZ28gLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpwZGY9J2h0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8nPgogIDxwZGY6QXV0aG9yPkFzaCBEYXZpbGE8L3BkZjpBdXRob3I+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOnhtcD0naHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyc+CiAgPHhtcDpDcmVhdG9yVG9vbD5DYW52YSBkb2M9REFHQjZFZEZEUFUgdXNlcj1VQUZHdzlLNXlxTSBicmFuZD1Bc2ggRGF2aWxhJiMzOTtzIFRlYW08L3htcDpDcmVhdG9yVG9vbD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSdyJz8+gBAh5AAAIABJREFUeJzt3Qe47UT19/GFINKrFAGp0qUjxUKTXqQL0otIFemCgIB0qSrSFKRIB0FQusgflKYUBREQ4QoIAooUgVd88X3nx2T+ydlnl+zsJLPL9/M861Hu3ZlZ95yczEkys8YMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwOiYx8W3XFzj4kEXb7j4fy6ednGJiz1dfMrFJLESBAAArX3YxRku3jM/gHeKl10c6mK6GMkCANCrRVzs6uJiF392MVXcdEoxuYufmx+o33dxuYsNXCzg4iPJZ6ZxsbSLg1w8YenA/k8Xh7mYst6UAQDI70MulnLxVRdXuHjRxt+prhMtu/Kcbv7f8h8XG+U8ZjXzj+B13Dsu5qsmNQAAujexi+VdHODiWhev2vgB/DUX15u/U13RBv9d8pKW/tt2LHD8Ci52KzUjAAC6NKmLlVwcYv6R8+s2fgB/xfwEsX3NTwabOEqm1TnR/L/zj7ETAQCgG3oHfqSL26z5ZC8N4HqHvLeLZeKkWKtfm/93fyt2Ii0sbH62/dfN/wIGAMAHdrCxA/hzLn5s/rHxovHSiuZ35r8OB8ZOpAX9YqX8NAFxosi5AAD6yLyWDuZ5J4ANs/vNfy3OjZ1ICzeYz++HsRMBAPSfCeYHiV0j59EPvmf+a/Gmixkj59JIS+beNp/f9pFzAQD0IT1i1yBxcexE+sDilj6xuMn6a9LfWpaujZ8jci4AgD60u/mBYkLkPPqFKr6FQf0nlhaTie0U8zk9EDsRAEB/WszSAWzeyLn0A002O9XSr8ldLpaImpGngVz5HBs7EQBA/1LJUg0W28VOpI+osEzYjEVxofllfjHoEfv7SR6rVND+rC72qKBdAEDGxjX0oWIxGizOrqGvQTKXi5/Z2KV9qoy3VM15bG9pXYCqXgGEZYsrVNQ+AIwk1U3fysXD5i+0VQ/q+yf9PFZxP4NqVRf32NiBXZMI65oJf3HS51UV9vFk0schFfYBACNlZ0svriEOrrjP5TN9zVBxX4NsMxd/svRrpQIvVVfQ0zv9V5L+vlJhPzclffygwj4AYOjpMarWgT9l6WDxrotzXMxTQ//aVOWtpN/NujxWe4d/2vwGLT81X0Z2mE3m4nBL14Tr67Z6hf2tYOk5MXeF/ZyZ9HF7hX0AwNDS4KByns9aetHWQPEdq3+tcbhDO7XD57Rf+OddfNPFreaLsGSfJvwn+cywm9PFQ5Z+z1arqJ/Dkz5+X1H7wYFJP89W3A8ADJUpzV9AX7B0INSM6pNczBIpp28kedzf8OfTutjAxXEu/seab+KSrQO/l4sp6kk5uuksHdRftmruoO9K2j+lgrazNrX0ezlZxX0BwMDT4KjCJX+z9OL5dxdHW/x316tYmtOXzN+p/8ZaD+C6Y1RN8S+7WKj+dPuG/u3vmP+anFNy2/qFISxXW6vkthstZen3dhQ35gGAXDRYa0tODd7hoqlBXYP7tBHzytJd2b+t+eCtQUXbdupVwBYuZo6UY786y/zX6SUrt1zshpY+0q+6Yt00ln6/N6i4LwAYOHp8fqKL1y29WOox+wHmH7v3mzvN56iB/W7zuevi3i+/dPQrLWsL39/ZSmz3jKTNG0pss52Xkv6+VvD4Lc0vfdTSt1F57QJgRGQfresds94v9/P7SZUVVa63xk5kwMxn6fd5vhLbDase9i6xzXbC+/pOEyMbfcx83fvsU53dyk0NAOLSY/awtKkf78gbrWNpvpNEzmWQZAf0BUtqc6FMm3XNUbjI0mp4eWiN/C429lXSL63cX2oAoC981NJlXXtFziWPqcwvO1O+n46cyyDZ2tJXFWX9IrR30uZTJbWXx5FJn4/m+Kw28smuetDj+u0rywwA+oDeQ4ftSSeNm0ouWramfA+KnUhNypgfoNntZRdluSFp84wS2+wk1Ix/r81nVJZYc0BCISKFVjvUVQYXAKLRXXpY1jQI7xXD1qHXxU6kBgubXz++Y49thF3ZdiojKfMz2kMlug1LajOPz1k6SM/V5O+11e79mc88bjzJATBiwiBZVhWuj5bUTjOhwIi2VP1Qhf30g40sff+rDVC6ff89t4s/JMer/n5Zj9vXsnS52nQltZnH7JYO1tnKd3qypPkgYVmj8jrMBuOJEwCUSrOAw136zj20o3KwWguuC+qyJeTVjNbMh4v6khX10U+0tPASS//Nqke/tvkJX+1sbv7uPhxX5o54pyRtxqiLHx6lh/NUteQfs/TfqZyY9AZgpH3P/AXxTwWO1QSkc23ssqCzykttnEdtcCbylUV3xdmd1HTnfZr598qLuJjaxWfM73h2m439XvTyS1ozD1i8eQyhlK2eKp1u6b/xry62jZAPAPQdbeYRHlnukPMYPQL+kflJStn3lnpXW+WysrDz1iUltKU7PA1Mg7DPtnaO0925/v2hyEq70B7p65Scg57ChHKvMZ6QNP6yotA5GLs0MQD0lXCXrTvBdu+ndUeowTQsIVP8zvzyqDrea29raXnabqjs6XLmN57RWuZ/Wpr/i2UmWAN9nVcy//j7tkzcaH5514oV9Rtmmmuv9U6P/cs0t4ubbXy9fia9AUATn7B0kN6myd9rg4yrLb1DU2iDFL2vrXOC2lyZ/ufv8FkN4FrG1DiAZ0ODk4qW9HOVvH6hyXlhKVhdDrHx37PXauy/FRWtWSJ2EgDQygWWvqMNg7QeS4d1xyF+7eILEfILJtj4pVi6A/+Ui/3NL2t7zcYPBPplRO9hNWdgK/OvGpCP7shfMf91rKNIi34Z+72l3zuto986898xfwHTfAX98qtJel+OmAcAtJQt6XmMi1ts7IB4p5X/XraICyxdj647cM3+bnUHfqeL412sa2zk0gv9Yhd+KZqjwn60s9qZlj4JetXSiX3zW3+scpjHxW8zuVxqg1E+GcCIyS6TCqH3l6vGTKqBHnc2G7y1bluP1/WYVu+Yq97Wc5Qcbv5r/ECFfWiv+xcs/X5ea35ZZTBx5u82qTCPPHRuhQmaCi2fWyxqRgDQQBelcJG61/ydWb/RxDzlN8HFj13saf6ObdiLzcSkX6I0c/7wCtqe28bOYNeg/sUWnw3L9w6sII8i9EtI2BNB/1tWRT4AKMVV5i9Q98VOpI0FYieAnml548E2tvb6+S6mb3PMrcnnzqw8u/xUYjdb4OZCF5NHzQgAEprRHi5O/fDOHMOncdKbVhuskeO4sNnMzdWlVojeoetdevj3PGJ+oAeA6DTRrN/v0jF4VP9dlQTDpDf9r6q+5Z1UFpax1bl1azc0STMM6nrysF3cdADEtIP5sp6Xu/iZ+TW/37TOa67LFmY1K1Yvue06d+lC/9BSweykNz2m7naOxpaZ4ycuNbtyZO/SQ6hoE4/ggRGhuxPtGJXdUKNZaICft8a8QnWuO0toS7OCVWv8yaTNqjZwQX9SQaCbLD2XjyrYznKZNur+JbcTrUkPuWnN/Hds7CP4fssXQMn0g/+cpT/4mkmsddNalqPHddqI4tHM3z9jvqpbHVbO9LtKwTZ0Z7Kvjf03KijIMZpWsd4qrGl73nAOrV1GQiVZ3MW75vM6I/Pn2vL39eTP9b9fqj81AHX4gaUXJ63vXbTNZ/fPfFaPLass7pF1Z9LnLV0epx3Avm5+J6yQt5b16BeUj7U5DugkzIrfI3YiCc0L0Dv98HP84Ya/1515thCN5hBQIwEYEqo0FbahVJyW8zgVd3kjOeaKalIbZw1L88yz6YcubkdYWiZUoSpueuowU0U5YrRoDwGdVyfHTiShV2HKR+WG527xGQ3gZ1v6M6EBnkfwwIDTY8JQZ1xbljbbCKWdnaz+R473Jf39vM1nZnFxgo0twapBXYP7dFUniJFypfnz65rYiZgvcBPO9zz7G4RCNJrd30/VFwF0QVXMNPEtLNfRo+giVdjUzoNJG7eXll1761l60Vqq4e/06F9PGLLFQbQdqQqGTF1Tfhgt3zZ/nj0cOY/PWXrOn9TFcap0uFslGQGohR5Xhx9+zfSerYe29su01a6qVpkeTvq7LvlvvTbQI8QwESiUYt3HWKKDau1u6TrvWPRE6vkkj1+Zr3oHYIR8w7p7H93KqtbdY74ybJTp88rM/w8z73etKQ9Ar5rCuTd7hP71lOxOS18rxcgBQB/QDlLhkXvR2d7TWXpB27ikvDrRftjhLj2E9k3f0bg7Qb0WtPQcXDlC/8dk+l8rQv8A+oTeK4ca1vf00E54Z13nBWWLpM+HzE/uYXczxBJ2Z9uh5n6zqz6OrblvAH1oIUtng19c4Pjw+FsT7GYuMa881q+5P6CVz7jYoMb+VO0uLMe8w/iFFkBiXUt/09+ry2Mvts7LyACUR8Viwvr3l8xPigOA/6V61rpAvOfiszmPWS35vI7btqK8AIz1PUufirF+HMA4mmh2o/kLxd9cfLzD57UGPNSFVvzJxdEuFqgwR2DUqR57+Jk7PHIuAPrYtC4eN3+xUMGYVmu45zT/qK/VTmz3utjb/OYVAMqxsKXllrWfwURx0wHQ71Q5Klw0mk2SU0W5CZbWRf98EhdkjsvG9S42Nwq8AL2YwvzSTP1MqYjMjHHTATAotF1qGJD3y/z5Xpk/1zrw+RqO06CtLVivt/EDuwb7c80P/gC6c6n5n6P/mJ9R3y/4RR0YANqRLAzGqp9+aea/VXJ1qg7H63G7fgH4lY0f3FXN7TjzjxABtBfKyyoOipxLozutt9LRAGoSJsll4+gC7Wii3JEunmjSnnZP+2oJuQLDaBlL9yi4PnIujZawdM5M477rAPrMDC7+bOngu0MJbWpJ3JmWFsV41eKUzAT6ncoq62lWeKrVb1v/qjqdctMvHJ2e2AHoA0taOqD/oOS2VVlroZLbBIaBZrD/zPzP3b9dfCpuOk2FX/Yvi50IgPxUKz0M6uxkBlTvEEt/5vaOnEszmpgX8tsoci4AunSqpY/XVoicCzDMVLQpDJZXRM6lldMtXbrK+3NgwEzs4n/M/xC/YPVvxAKMCj1u1/vpJ83viNhvdC142fy14MzIuQADSRPU7jQ/szQWDeLPmv9B1uA+ccRcgGE3bewEWljT4u4BDwy8qyz9Ido+Yh5LW7qM5tSIeQCI4zzzP/+aFEf5WaCA+V08Yumg/n0Xk0bKZYdMHl+KlAOA+ul9ud6b62f/2Mi5AANNZRazFdvucTFHpFzOSHJ428VikXIAUK9sWehFIucCDAVVVguPvbXr2WoRctBv6mGSnLZO7df3fYhrHhfLu1jOqPs9DC43/zP/m9iJAMNEF8jnzP9wvWdxajxrktwLSQ4qE/uhCDmgv6zt4nuWbsPbGE+7ONn8JE8MFlWDCzcSB0TOBRg6M7n4paUXy5+4mKbmHFbM9B/jSQH6w07mB+vs4K1fOK81P8AfaX6Jk+qR6x3smy72jZEoCtNkXH1f37d4r/qAoaalYydYehHVndGiNeegH/SVau4T/UElSRsH8kvM1+xvRb90Hp189odVJ4jShFK0t8ZOBBh2qov+uvkfON39fDFuOhgBYVDOPk5fpYvj9Vmdqz8qOzGUbnrzr/b0fd4pci7ASNDStscsvcDqXSXFX1AFPUpv3Aa3yHvxFZLj1y0vNVRgD2NnNaB2U9rYpW23m3/XDpRBpUjD6oYQN7uYrIc2jzE/uXLKnrNDVcJcnctjJwKMmn1s7AV3grGhCno3hfk78ey5dU/y57163sWeJbSD8mkCXK87q2kFjLZKViEqzfm5ycWLLtYpI0FgWGlyWvjhO97FM5n//lrEvDD47rCxg/kTLqYrqW0tu3yqpLZQLn1vutlZTRUsVSJa79q/Y34PijC/pzHeTD4LoMEs5u909IMSJhrNaP6RaPgButgo8IHuNb4zV4XAhUpsX5Ou9H521RLbRDlUREbf87Oa/J3ep2tFg56unOviAUvXqjeLv5q/Oz/J/OqYZVx8pNr0gcEzifnfhEMVp+wPiR53HWfpD9VDLuarOT8Mrt1s/IW5ihr+P3dxSgXtojhdJ7KP29dwcaD5G4NHrfXAHSZKaiMX1RtY3fwNB4AcdCHUD9ErLuZq8ZmNLX309XcX69WTGgbYvDb+juv2ivrSK6GHKmobxei1XbtBOyxXVFErLWPc0sXiUTIFhsSmllZwWqPDZxe0tCynPq8fQkq2opX7bfwFfN6K+looaX/qitpHd75h/hoRvu+vmX8KqI2Z9NRGj9r5XmHkfc7F5iW1tbCLN8z/wH0z5zGq1PUTS39QVYd9xpLywfBoXC2hOLHiPt8xXw8ecV1gYyfXVvVLHDDQshua6DH5JD20pQkpf0jaUlnGibo8/hAX/0mO/7P5CSqAzGp+cM0O5v+y6nfVe9Co8R6TJif+wtJNn7aNmw7Q3xrvju82f/Es4pqkDS1NK7p8aE3z793DzOWdC7aD4XK1jb87/1YN/V5kzWdTo3oLuPij+e/1q8aKAyC37N2xlnJ8usvjD7C0FGOvd9aaRPdQ0t6FPbaFwacLebP1wnXseX+4VTfpDq3pfbgGcX2v/2R+cAfQBS3leNnSi2beR42rZI7ZsaRcVO3rKOuthCeGw702fkA/s6a+v2K+siHqo8fqYSXDXS4+GjcdYHCprKKKMYQLpx51tqtpPbuLl2xs8RigLGtZ86VJdW3Jq7XOb9XUF3wd/WzRqUnjpgMMPhWBOd/SHyztmDZ/k8+p7OI91rx4DFCGR2z8YH5vjf1/OumTpZTV02N1vUrpZoUMgJxU+1gT0/QDpgIwmzb8/WnWuXgMUJReATW7O9+lxhwWTfosshUruqcltFvFTgIYVprgpiVk4WIalrZ1UzwGKOIGGz+Ya+nS9DXmsEDSL6WJAQwFFXlRsZdwUdX+0+HR2KER88LwUuGQZnfn19Wcx1xJv4vV3C8AVErrfrMX1zujZoNhFvYCaIwv1pzHbMaADmBIaQMVbaSii5zWrR8SNx0MIW2nG54ANUa7FRdVmMUY0AEMMb1PDIVfFKo0N03UjDBMtrHmg/nPI+QSHrkvEaFvAKiF7qK0TjRcbLVj2oJRM8KwuNmaD+hfiZBLmBTHgA5g6O1laVUnLW3bOG46GHAzWfPBXFF0j4FehGVri0ToGwBqt4L58pjhwnusUYgDxTTbIlXxSKR8lkn6p84CgJGhOyttYhEuwHpsyp7m6JYqDjYb0L8dKZ+Vkv7rXPsOANFN7OJkSy/CKkjDu0fkNae1fty+VqScNjZKvwIYYboIhmVHKh27Tdx0MCC0u1+zwfz/WLx9AnZO+geAkaXJRJr5Hi7K3zFfMhZoRVtlNhvQ74qY0wHm9yoAgJE2tYsrLf5jU/S/ma314/ZY78/lOPO7DQJA7T5m/TdwHmj+3TrQitaYtxrQN4mYl7YRviNi/wBG2PHmL4I/jp0I0AVtutJqQI+5WkKrNS6L2D+AEaVH3K+ZvwiuFzkXoButarf/JWZSzu9dnBY5BwAjSBul6CL4qIuJIucC5LWstb47vyZiXqKNiNiACECtJnXxV/MXwe0i5wJ0Q3MsWg3osQdT5bB95BwAjJjdzV98njWWh2GwtNqMRbFmxLzmS3JYNWIOAEaMqlg9af7is0/kXIBu6JdPFW5pNaBPGy81WyPJYd6IOQAYMVuZv/BoQtzkkXMBurGitR7MJ8RL6wNhKR0A1OZB8xeeb8VOBOjSQdZ6QL8xYl5ygvl5KQBQi3XNX/zeMb/jGTBIrrfWA3rsYkRXuLgncg4ARkjYsvR9F1eZXwIEDIpQN6FZ7BgxL9FWrpdGzgHAiGi1fleDPIVl0O8+aa0Hc8UK8VL7wFsujoycA4ARcbX5C9+PXKzt4jYbe0F8yMW20bID2tvV2g/o08RL7YM9EZTDlhFzADAiFrD0wvfJzJ8vZf7d338yf/+0i71dTFFzjkA7+kW01WD+t4h5yWpJHktHzgPACNAuUO1KY2rt7FnmJ8tlL5JHWtzNLoDgYWs9oMfcA11CoaaPRM4DwJCbzcW/zV9wlunw2VnN7+n8d0svltoI4zsu5qowR6CdD5ufyNlqQD8vXmof0M/HC5FzADACTjV/0buti2P0PlI1sydYetF8z8XFLhYrOT+gkyWs/fvzr8dL7QO3mJ9cCgCVmd7SrSaL1LnWJi47md+RLXsB/bn594ZAHbQkrd2Avkm81D7woovvRs4Bw2VK8xtnHRE7EfQPnQy64D3YYzvaXnVjF3fb2AupCmlsZr4+PFAVDZbtBvQl46Vm0yU57BIxBwwH3UBtYP5J6BuWPhmlCBg+oBnrOik2LbFN3ZnfYGMvqH80fycPVEGT3toN6NPFS81WTnJYPmIOGGy6pmpScnbukmKCixPNz20CPth85YsVta136ZqMlD0BNTFIe1LHXBOM4fMvaz2YvxMxL9kryYNlnuiGCn192/wW1tnz+WUXZ7pYxfyTUaBWc5ifeBceESlUopPfLFEGnUPt7s5/Hy+1D5zj4pnIOWAwfMLF4S4es7HnsK6desy+vvkVHUB0Wq/+TRcv2diT9UfGWnYUt6q1H9B/Gi+1D9zr4rrIOaB/adnwvubPk+x5q6XEOm+0nfWU0bIDOtBj/j1dPGX+xNWWkpNGzQiDLBRtaRWxZ5frkf9RkXNAf9Hqoi+bXyqcrcKpWgpa3vgVFzNEyw4oSL99bhc7CQy071v7Af0b8VKzxZMcvhAxB/QH3chs7eJaa32urhMtOwDoA3dY+wF9h2iZpevjZ4uYA+LR++51XVzo4nUbe15qstvJLpazdJA/Pk6aANAfGudkNEaRgkllOcN8URmMDs08X8n8977x3NT+F3qipHkf2docW1m6CoiZ6wBGkjY7aTeYK2KWIr7P4k/KQz20M+UJLv5sY8+/f7q4wPydeqsZ6pO5eCv5/EpVJwoA/UiDdacBPebkonddHBaxf9TnCUvPubfNbzutKpmT5Tz+4uTYMyrJDgD63EbWeUCPZemk/7Uj5oD6HGy+QqYm+U5d4HhNnAyFYyYuMS8AGAj7W/vB/K/xUrM9khyoiog89Dhej+d1zqwbORcAqF2nJWsPx0vtg5nNT0fsH4PnbPPn7QWR8wCA2t1k7Qf0W+Ol9sE71Usj9o/Bo01YdN5qglzed+8AMBSetPYD+iWR8pom6X+fSP1jMGnJmpau6dypatMsAOhLnSbEnRoprzWT/leM1D8Gl4rN6Ny5OnYiAFAXbejTaUCPVfb1iKR/HpuiW6ocp3NHSx6nipwLANQi1ElvF3tEyk3v7n8bqW8MvsfNn787xU4EAOqgpT2dBvStIuSlkp5vuvhOhL4xHMITnpt7bOdjJeQCAJXbxToP6DF2rwpPDjaL0DeGw3zmzyFtpzpzl8fq83u5uCs5fvZyUwOA8h1pnQf0GJPSdrP4JWcx+O43fx59NcdnVZlOFeqaLePctqoEAaAsP7DOA/pCEfK6yPwadKAXB5g/h3/V4u+1MdEmLi43Xzs+e94/6OLrLuaqPk0A6N2N1nlAnzVCXs+4ODdCvxguc1h6Hs+X/JnmZ6xh/pfZv9vYc101GY6xuLsLAkAhD1nnAX3ymnOa3XjMifLcbv58UklY1VR43sae39pvXZMvPxsrQQAogzZe6TSg123rpF8edaJXOodUXKbxnH7dxXnGLn4Ahsh/rf1g/s8IOelR+0sR+sVw0Az1PV380vwM9XAu6x35ldbd/uoAMBCmt853589FyEvvMS+M0C8G17QudjQ/J+Q9S8/f/5iftb5j8hkAGEoLWucB/bGac5oh6XfHmvvF4NHcji3MP1J/x8aet3e72Nu6X38OAAPpc9Z5QL+n5py+mPQ7T839YjBM6mIDFxebfw+ePVd/Z37fAc4dACNnU+s8oN9ec068P0crB9v4ZWYTXBznYql4aQFAfLtb5wH9+ppz+rP5uy+g0f6WLjM7w8VK5vc+B4CRd7h1HtAvrzGfuZI+2R0LzcziYr3YSQBAPzrNOg/oP6oxn52TPuessU8AAAaeButOA/r3a8znUvOP3AEAQBeutc4D+kk15vOyi3Nq7A8AgKFwh3Ue0I+qKZfFkv7Y/xwAgC49bJ0H9MNqyuXApL/pauoPAICh8ax1HtAPqimX28z/ggEAALr0mnUe0PepIY8pkr6+XUNfAAAMnexOVK1ijxryWCfp6/M19AUAwFCZ2joP5oqda8jlVBdv1dAPAABDR1W38gzo29WQy+MurquhHwAAhs58lm9A36riPGZL+tmt4n4AABhKYd13p9ii4jz2SPqZreJ+AAAYSitYvgG96kIvPzP/yB0AABSwquUb0DeqOI+3XZxccR9AWT7hYmXzr6J2iZwLAHxgA8s3oH+hwhzWTvpYtcI+gDymdLGwi9VdbO/iEPN7rmu/g/tdvGjjfzb+HSVTAGiwpeUb0Kvcf/q75u/QJ66wD+CjLpZ0sa75u+ojXZzr4ucuHrF8BZZaxbT1/TMAoLkdLd8Fa+0Kc3jWxRUVto/h9iHzkymXc7Gxi71cHOfiQvOlhDU3Q/UN8g7OKrSkO/Hfmp/b8UMXxyTtai7JZ82vDpkic8xClf8rAaCDPS3ugL540v72FbWP4aeljt3cTU9wcbeLS12ckPlzzROZs8u+JyTHrtbbPwEAerefxR3Qv+niv+YfhwJFaCAO5+nLLh5w8RPzr3K0qZAmrn3OxdwuJmly/KvJsZ8p0Pe9ybHbFDgWAEp1sMUd0B8yP9kIKEqP2nWOvlHw+EeS4zcvcOw1ybF17UYIAC3pDjnWgP4blxaxAAAc3UlEQVSxpO3DK2gbo2MOS8/TaQocf1Ny7N4Fjj0jOfbUAscCQKk02SfWgL530vaSFbSN0TGRpTsGLlzg+POTY48vcOyhybGXFTgWAEqlvcdjDeh3uHi+gnYxep6z4pPTwi+1FxQ4dqfk2DsLHAsApTrd4gzo0yftfr/kdjGa7jF/Pm1b4Niw0uPWAseGokhPFTgWAEp1puUb0Nctud9tk3bXKbldjKarrfjktE2SYx8tcGxYdqlqcRMVOB4ASqOiGXkG9A1K7lcX4HdcTFpyuxhN3zN/np5W4NgVrfgs+Y9a+jMyU4HjAaA0F1i+AX3Dkvv9l/m1wkAZVHNd5+nlBY6d09LzfOoCx/87OXaJAscCQGl+bPkG9E1L7HO9pM3tS2wToy2UML6rwLEqNhNmyRcp4fqkVVurAQByyTugFym60cq5SZvTl9gmRtua5s+ppwse/1crPkv+l8mxOxXsGwBKoXrWeQb0L5XUn3ZU065Wt5fUHiCLmT9PdaddZHLaA8nxWxc4NvwMHVrgWAAojQpi5BnQi1zomlk1aW+PktoDZAZLz9VZChx/XXLsAQWOPSU59owCxwJAabRtaZ4BfceS+jsraW/WktoDgjA5bekCx4bzskgJ1wOSY68pcCwAlOZKyzeg71pCX3oUqsft95XQFtDoj+bP1fULHBv2NLi0wLFbJ8feU+BYAChN3jv0vUroa+WkrQNLaAtodJv58+vLBY79VHLcsgWOXcb8LwLsuAYgqlBhq1PsV0JfYWeqj5fQFtDoYvPn1xGxEwGAGMJ+zp3i4B770eP2v7l4sMd2gFZOMn+unh07EQCIQdXa8gzove5ZvkrSziE9tgO0sq/5c+z62IkAQAxXWb4B/ege+wmbwMzbYztAKyq9uouLFWInAgAxqPZ1ngH9pB76CMVkHukpUwAA0NIllm9A/24PfXw+aeMbPWUKAABausjyDeg/6KGPULud2e0AAFTkfMs3oF/YQx//MF8rGwAAVER33nkG9CsLtr9+cvz+PWcKAABa0prdPAN60aVAqqD1Xyu2YQYAAMgpVG/rFDcXaHtKF++4uKuUTAEAQEvfsXwD+t0F2g6bVrBVKgAAFQt7OXeKhwq0fWNy7EylZAoAAFo63vIN6E922e7MyXE3lpYpAABo6UjLN6C/0GW7+yXHbVNWogAAoDVtlpJnQP9nl+3+0cW7LiYrLVMAANBSuJPuFO910ebSyTGXlZop0N60sRMAgJg0Az3PgP7/umgzzJxfp9RMgfZ2cnGPi8/ETgQAYviy5R/Qp8/R3ofNP55/1cWHKsgXaOVIS89VPR1iq14AI2Vbyz+gz5Wjvc2Tz367imSBNrSyQpUP/2P+HFRRoxONR/EARsQXLf+A/skc7d2SfHaBKpIFcljCxW2WnrcvutjdxcQxkwKAqm1o+Qf0FTu0Naf5uu33VZUs0AWd23+w9Px9xJjXAWCIrW35B/Q1O7R1VPK5XatKFuiS5nTsa35ORziPb3KxaMykAKAKK1n+AX2TDm29kHxumqqSBQqawfzqCy2/DMswv2/+vTsADIVlLP+AvkObdtZNPnNRhbkCvVrE/EZD4Zx+w8XXo2YEACVZ2PIP6F9r087Pks+sUmGuQBmONX+uvmzpuf2Uiy1iJgUAvfq45R/Qj2jThibDTag4V6AMPzZ/Pu/jYmUXD1p6jt/lYvl4qQFAcSoWk3dAP7VFG8clf39o1ckCJfiV+fN14+S/JzJfj+FpS8/1iy1f3QUA6BuTWv4B/bwmx0/i4h8u3nfxsRryBXr1kvnzeZmGP9dGQgdaOiP+LRdHu5iy1uwAoAd5B/Srmhy7ZfJ3N9SSKdAbDdrhfJ6hxWf01OoU85Xm9LnnXexslDIGMABUez3PgH57k2MbH18C/WwxS+++O5nb/KP395NjHnKxWmWZAUAJdAeSZ0D/bcNxYYa8HlF+uK5kgR5sYM3P5XaWdXGHpT8H17pYqPzUAKB3f7R8A/qfG447L/nz42vLFOjNV82fs1cXOHZ98+Vjdfy/XZxurR/bA0AUv7F8A/rbmWN0IXs3+fPZK8hJF95nkvZfMX+HtLexcxZ6o3fj7VZsdKINXrTl8HOWnpsqLcsTKgB9Ifs4sVOEsq4HJf99Rcm5aPlQmIXcLDSjfruS+ywDj2AHgyZ26jzau8Cxy5mfBa8JoG/Y2PPyMRcLlpQjABSmd4J5B/SwLepTyX9/usQ8fpi0+XcXJ7g4t00e/fSYX08rlNNnYyeCjvTuXN+rDTt8TmvTtQ2rqiNeY2M3dwmhndy+62IjF1NXlC8AdOVHln9AX9nFCsn/f6DEHC5L2jzfxj5W1x7sb7bIZesS++/FGubzWTJ2IuhIs9tbfa80yVP7putcbPaUSH+mKnM7uZijjmQBoFua3JN3QFe967OT/79ZSf3vkrT3U/N3Ro22b5HLv8zvwR6b7uKUz6SxE0Fb4UmKQr80fsL8+nItTXvOmp9j2mpVj9kbi9AAQF/6luUf0HVxe918mcwyLJS0+5sOnwtbszbGL0vKoxdnufhT7CTQkWolhPPmGWt+Pt3n4kQXq5svQgMAA2U/yz+gh3fnu5XU9z3mK3J9osPnTmqT00ol5VKUfqm4LnIOGG9W8xMoL7DWd+D6xVRzNVTxcMYoWQJAifROMO+ArlBluSlK6Dc8qt4jx2eXb5PPjSXk0ou/WX9N0htVU5lfK64laWG9eGNowqXWoOucY1Y6gKGzqXU3oJ9eQp8zmX8H/kgXxzQuFcpGrIvzTEn/20Tqf9TN4+JwF7+w1ufGHclnPhMpRwCojepTdzOgL1xCnyckba3fxTE3tsnpuyXkVMSaSf9LRep/1DWb//E783fpKvM6VbzUAKB+n7LuBvRet0mdzvx78/u7PO7INjm9Zr6KV900SVCbd1ApLI4LzU+Y1P/u4GK2qNkAQGQqFtPNgD5/j/0dnbSzdpfHrdMhrzV6zKsILXn6Q4R+4fXDskUA6BvhPXDeWLrH/nQ3/fsK8jyrx7yKeNR8IRIAAKL7kHU3oK/aQ19bJ20UrfLWaj16mMHcrDBNVfSYXY/bv1FjnwAAtKViMXkH9A166OdXLv7Sw/HtJsbVPTktLKVbr8Y+AQBoS3ud5x3Qi95dL5ocf0QPeZ7WIbf9e2i7W7snfVaxfSwAAIXk3RNdsXvBPk5Njp+nhzz36JDbDT203S3tDvdajf0BANDRzZZ/QD+oQPt6T/+K+UfuvQjrvlvF6z22342HzBc0AQCgb1xq+Qf0Ywq0v25y7Fd6zHOeHPn18gQgL23coQlxp9TQFwAAuV1j+Qf0IqVfL0+Ona6EXDvlt3kJfXTyOettPgEAAJVotxysMc7vsu3JXbxn5W2iEnZ8axV1bJRycNLXYjX0BQBALqqwlncwV1zZZfubJ8ftUE669vMO+dWx+5q2S32nhn4AAMhNNdW7GdBv6bL9q1z8XxdTl5TvWR3y+1tJ/bSjIja/rqEfAABy2dD8IPiq5R/Q7+mifT1uf9v8LPqyHJQjxxlK7K9RqH1/aoV9AADQlecsXYqWd0Dvpg77xskxe5WXsm2WI8deytN2snPSxxYV9gEAQG5HmB+YtDb845Z/QH+uiz5+aOUvJQslV9tFmb9ANLoo6WPeCvtAc1+08l7dAMBQyA7gCyV/lndA/2cX/Wj2/JPlpPy/8uwOd0bJfWY9Y75IDuqlErv63r7l4sfmaxtMHDUjAOgDmqXd+B74Ncs/qOfxyeSzRdatd/J2h/xur6BPmS1p/ycVtY/WtKtd4/f5eRcnuVgyYl4AEI3eL4eJcNnHl09Y/gF9ihz9HJB8ds2yEs94rEN+z1fQp2ybtL9PRe2jtcfNf+21yuJJG/89/52L/VzMHCtBAKhb2Fltu4Y/v9PyD+iz5OjntuSzk5eRdIOf5shxsgr6vSBpmzvCei1r6fc1zMdYwfzTnxdt7PddRYyuNz9psYpzAAD6wuHmL3rN1lBfYfkH9Plz9KXCK7f1nnJTp+fI8ZMV9PuSizcraBfthZ367mjyd5OY35P+YvPfm+w5oHoBZ5sv1QsAQ0ODcLsB+XuWf0BfukNf4bF+kZ3Z8tgrR47rl9znIkm7Pyu5XbSniW+ahKiv/S4dPjuV+YqEqnvwHxt7PuiV0jddzFVVogBQl/vMX9iOaPH3h1n+AX3lDn0dk3xu8Z6zbm6dHDmWvXTtq0m7B5TcLtoL3+t3rbvNfWZ1sb+L39j4c0N3+l82lsABGEC7mb+QPdXmM7tY/gH9Cx36u9fFy72l3NaCOXIse2vTm5J2ly25XbQX1v1f3kMbC7s4ztL5IyFYAgdgoGgCmy5cuoAt3+ZzoQxsnti2TTtTJ5+5utfEO+iU47Ul9jVl0uYbJbaJzvQIPZy7G5bQ3kTmXwedY/79evZ8YQkcgL53g/kL1vc6fG4Fyz+g79mmnfCItMpqbTKhTX6KR0rsK/yy89MS20RnWomhr7veoX+45LY/Yr6M8DXmH+dnzx09pt/XWAIHoI+Euueq2DZVh8/OafkH9IPbtHOCVfv+PLilQ45l3k2fk7S5b4ltorOwVW4VxYmypjf/Tv1OG38eaQnc6hX3DwBtzWh+mZUuSmvlPCbvgH5cmza0JO71Yil3Jc/StW4mUbXzt6S9hTp9EKXR3fH75r/uK9TY71wuDrWxxYu+XmP/ADDOL81fjE7r4piwPKhTtKqVPrnV92h61w45Ksp4H7pi0tazJbSF/FSNT1/3P0TMQXNO9IvjrBFzADDiQt3rh7s87hHLN6Bf3OL4zyd/X9X686zPdMhRsVEJ/Zxk+eYgoFz3m/+6Hxo7EQCIJdxRagOTubs8NizN6hSt7sBDJbrPdpt0AVN1yFHxtRL6+UvS1joltIV8tMwsfA9nj5wLAESh9+bhfW+7pWWthP3LO8UvWhx/Y/L3dXnO2ud5co/tL5m081aP7aA7x5r/ujcr9QoAIyG8N7+s4PFHW74B/YEWx6uW9j0F+y4iLMlrFb2uhQ8z9i/psR3kp7Xi2nNeX/dOpV4BYCgdYenkrTzbmzaTZ6KZ4vEmx4Za5ycV7LuIo6x9nvf32P6zSTsb9NgO8lvF/Ne821KvADAUtOd4GMSW6KGdL1i+Af2vTY7dKfm7zXrov1vrWvs8eyk/u3zSRh1L8JDSRMYJVvwpEwAMLO0PrSIqGny26LGtZSzfgN7snfLZyd/N3WMO3ZjeOudadAOO05Ljz+s9TRQwS+wEAKBO07h40vzA081681Zms3wDerOJb781Xx+7blqn3C7Pok8swpp89tIGAFROs4A16NxdUnuakPRfyzegT585TnW2VdXr1pLy6MZZ1j7PIk8t1rPWrxYAAChVmIH9oosZSmz3ecs3oM+VOeZTyZ8dW2IeeW1u7fM8vECblyfHHllOigAANJcdxJYque17LN+Ant18ZY/kzzYpOZc8prX2ef64y/ZmsOa/tAAAUKpQ7KSMSXDNXGn5BvSVMseEgjTzVJBPHuHVQ7Potvzt15PjflZmggAAZGnSWqgEd0xFfZxi+Qb0L2SO0f7Rr1WUTx7an71Vnu922VYo9bpumQkCABBo+dUT5gebVpujlGFvyzegb5c5RoNmq3KwddBWm+1yXTRnOxsln3+qghwBAPiAZrJrsKl64NzY8g3oeyafXzT57zorxDVzm+X75aOdB5PPb1lFggAAhPfaD7mYsuK+lrV8A/o3ks9vnfz3VhXn1Um7X0Ra7d+etU7y2d9VlSAAYLQdZ36gedr8bmpVm8XyDejhjvzbyX9/sobcOmm1+9ojOY4Nd+erVJUcAGB07Wx+kFEFtjlr7DfPgB5Kot6S/Hc/2Nda59vu67dj8pnLq04QADB6QrUy1U1fpua+n7bOA/pPks9q1v2jNefXil5HtLpL36fFMap4p01c/mV+FQEAAKXRGu93k1ghQv93WucBXWu/w+P5frqzXd2a59vql45rk7/fvJbsAAAjQwP42+YHmdUj5XCRdR7QVbBlleT/HxYly9ZOteY579fwuYOSPz+91uwAAENPj9b1iF2DTMzCJsdY5wFdBVjCHugbxUmzraused7alU5f25OS/z47VoIAgOGk2uivW38MkGGSWKc4NvnfheKk2ZFqzKuCXbPc9RSk8Y4dAICeLOziH+YHmm0j5yKftnwD+l3WPzPcW5nc/Br577u4wcVRLrZ3MXvMpAAAw2d+F6+YHxh3iZxLoPXueQZ0xeORcsTgqLoYEgBEt5ilm63sFjmXRm9YvgH92lgJYmAcb/4Xv5U6fRAABtGKLt40PyhuHTmXZu6zfAN67Bru6G8ftbHnizYWmjlqRgBQog0tvcBtGDmXVi60fAP6XrESxMBYzvwyx3DOqJCPqiBOFDMpAOhVWOr1jovPR86lnUMt34C+QawEMVAmNl+t75+WnjvaQXCRmEkBQFGaYa0Lmd5Px6gA143NLN+AvlisBDGQVF73UkvPn3+bX/44WcykAKAb2sxEFzBttLJ45Fzy0O5peQb0aWIliIG2mosnLT2PtH/AmlEzAoAOdOdxvfmL1gvm15wPgo9YvgF90lgJYuDpHPumpaWOFbp7nzVmUgDQjDYv+a35C9UTNngXqgnWeUCfJFZyGBrzubjR0nNK1f32KKntj5bUDoARpsk+uiPXBeoeF9PGTaeQW63zgD5xtOwwbDRvY4Kl59b9Lpbssc1fufi1+VdIANC1VS3dZOW6yLn04jvWeUAHyjSVi5NdvGf+/NL/npr8ebf2SNrQzPpBezoGoA9sZ+lgd17kXHq1q7UfzJ+IlxqGnCaOallbONeecbFJF8drAA9L5HYtPTsAQ+84Sy9Ah0bOpQy6qLYb0E+MlxpGgArPqG5DKI+s0AY7H89x7GWWvu6igA2A3LSjV3b/7X4s5VrUn631gD5bxLwwOrRZ0Dku3re0jsMB1nr+xpqWPq7n3TmA3DRD9zFLl6UtFTed0u1gzQfzr0XMCaOpsYTsw8mfZemX6/BL6Am1ZgdgoK1l6a5kd7qYIWo21TnC0ovoX628JUVAt3RXvq+l78d116697kOBoxOTP9egPnmMBAEMHhXECIPc8ZFzqcMCLpaOnQSQmN3GlpDV07GDMv+9drzU0A90t6XJF0+5WDdyLuhfuhPQxBxdNLQ0rV93SwNGQWMJWcVlUTNCX/ijjT0pPh03HfQhFYv5k/nz4w8uPhE3HQCJO8z/XL5uTNYceXrXwhpbtLO9i3+ZPzeusGKFLgCUb14X75r/2dwzci7oA9NZ85m868RMCn1BA7cGcJ0PumhQpALoL7cYa87R4B82fkC/JGpGiE11pFWhSueCHrWzphXoL5sba87RxE02fkD/V9SMENP+lp4H17qYIm46QFTTxU6gialdPGf+Z/SkyLmgz+xnzR+7NxYuwHDTdovhEZ4ese8WNx0gOr1metnForETaaBBnDXnaGoJaz6gHxYzKdRKa1d14dL3fYL5cwIYZRooQyXEV6x/ahEsZumObGtGzgV9KlzMs3FnzIRQC1V403yJ8D3XtqFTRs0I6B+zWLqs9+/W+x7lZdAe58rnqtiJoH/90Jrfpc8eMylUahsXr1q6ReNn46YD9KXGQf1TEXPZwNJNWuaImAf63MrWfEA/KGZSqIQuBOFdueLUuOkAfU+D+u/N/7yolnrMQX0jF9tF7B8D4nkbP6D/IWpGKJuKT7xp/nurUr/Lxk0HGBiaNJod1Kmoib72LWt+lx7zt1GUYyEXv7LR2lQFKFt2UNcvxgzq6Fsft+YD+hUxk0JPtF71dEu/lw9Y/8zWBQZR46C+StRsgDYusOaD+tzxUkJBO5jfRU/fv9eMdeVAWTSoP2T+Z+ttY1BHn9Lez80G9HNiJoWuqAjGby393p3vYsaoGQHDZ3obO6ivHjcdoDmtb2w2qLNlZn+b1sVZNnZCI9X+gOpkB3VVV2RQR9+Zz5oP6LfFTApt7W1+jWyow7933HSAkaFB/X5LB/V146YDjHegNR/U14+ZFMbRjkvaDS18f37gYtaoGQGjRU/G7rX0Z/DfxqCOPpR9DxtigvmZ04hL68dDCcjw9GSxqBkBo2cqF3dbWkXuAUt/JjeMmBcwzsLW/C79sphJjTi9DsnOcVBJSu4GgPppML/L0kIzWg6avVvXnfpG0bIDmviKNR/UKT1Yr5lcfN/Sr7+Wo+0cNSNgMKj++edLbnMKF3eY/1l83cXymb/T/unZR/BblNw30JOrbfyArolXbLFZvY+Z3wEt+7U/0tgRDchjLUt/btYqqU0N5r+w9M58hSafaRzUv1RS30DP9M78CRs/qGvL1Y9HzGuYzWN+glv4Wmud64nmN4kAkI8ei4eSx2UsK5vM0sFcO56126FQj9/DPKT3jTt19BHdKWqLzcZBXe9wp4mY17BZxMWlln599TjvaPO/8QPoXlmDugbzmy3fYB7MYGMH9W0L9g2UTnfjz9n4Qf1h8wM+itMGONdZ+jXVPuUHGysKgDI0DurdTiSd1NLB/C3LN5gHDOroW3NZ88fvL7pYMmJeg2pTS2fKhtcY+7qYPGZSwBDKDurdrBXXYH69pYP5agX6bhzUmdCKvqHHv/9jzSfKbRoxr0GhwXoPF09b+rXT/2fzFKBa3Q7qk1g6mL9jxQbzIDuoKxjU0VfOs+ZL2k6MmVQfUwW3Y138w9Kvle7OKUAB1EeD+p2WrwBMdoXP2iX0rUH9N5k2Fy+hTaA025i/M28c1H/pYt6IefWTz9n4X35UnGepmEkBI6zxTr2xAIzuzK/O/H1ZS94k3KkfX2KbQGnmtrFrLrPxbRvNiV2qsqcf2AmWfi3edHGaiznipQUgoUFdNx7h53OzzN9dkvnzDSrom1Ur6Hu7m1/O0Tiov2KjsfvXbC6+7uJ3Nvbf/7iLrxrL+4B+0zioaw5QdtloFYM5MDD0OCm7J3c2NPFry3ipVULFI3axse/kwgRBPWZvVkUKQP/QJNXsoK54z5jgC/yvBV1cZM0HdhWoOcbFJ6Jl1xutudcd96029t+lIjBXmF9nOlW07AB0S4N6qACn+F7cdID+pBKmP7TmA7vifhf7mX9c3a/01EHLW46y8VvKPmZ+nsBK0bIDUIbsnTqlWoE29Gh6H/Pvk1sN7lrbvr+LVSzeRLopkv4PML9N6QQbn+ct5u/Q54qSIYCqNA7qVHUDOljOxaEubjdfrKHVAP+UiyvNTzTTspEZS8xBS+q0nEy7IGnwPt/GT2YLobvyk1ysZ37ABzC8Ggd1CsAAXVBd5MPM3/mqtGKrAT6E9gJX+dm7k2M06GtnspPNby3aGJqkd4P5mvOvtmlXNZ4fNb/+VBui6DE778KB0dM4UY5BHShoWfMzx7Vm+w5rPwgXib+Yn9Cm9vcyv/sSj88BZDUO6nvETQcYHtq6cGYX87tYxvx7bpVs1DuuPV0cYs3vzrX+XQUjVjQGbQDdaRzU94ubDgAAKIpBHQCAIaFBPVt34oi46QAAgKI+YmMH9RPipgMAAIpqHNRPi5sOAAAoKjuo/yhyLgAAoAd6p35Y7CQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoD7/H2ZSfCIZqhOyAAAAAElFTkSuQmCC" alt="Three Sixty Health logo">
+      <span>Three Sixty Health</span>
+    </a>
+    <nav class="tsh-nav" aria-label="Main">
+      <a href="#approach">Our approach</a>
+      <a href="#services">Services</a>
+      <a href="#about">About Ash</a>
+      <a href="#stories">Client stories</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="tsh-btn" href="#">Book a call</a>
+  </div>
+</header>
+<a class="tsh-btn tsh-float" href="#">Book your free discovery call <span class="tsh-arrow">&rarr;</span></a>
+</div>
+
+
+<section class="pv-photo-sec" style="background:#4A5D45;--pt:112px;--pb:136px">
+  <div class="pv-row" style="grid-template-columns:58fr 42fr">
+    <div class="pv-col"><!-- Hero: LEFT column of the Hero photo section (section background #4A5D45). Right column = GHL Image element. -->
+<div class="tsh tsh-moss" id="top" style="background:transparent">
+  <div class="tsh-reveal">
+    <span class="tsh-eyebrow">Ash &nbsp;|&nbsp; Functional Nutritionist for Women</span>
+    <h1>Feel like <em>yourself</em> again.</h1>
+    <p class="tsh-lede" style="margin-top:28px">Tired, bloated, hormonal, and told your bloods are &lsquo;normal&rsquo;? We look at the whole picture, from your blood work to your plate to your stress, to find what&rsquo;s really going on and give you a clear plan to fix it.</p>
+    <div class="tsh-btns">
+      <a class="tsh-btn" href="#">Book your free discovery call <span class="tsh-arrow">&rarr;</span></a>
+      <a class="tsh-btn tsh-btn-ghost" href="#approach">See how it works</a>
+    </div>
+    <p class="tsh-microcopy">Free 20-minute call &middot; No pressure, no obligation <span class="tbc">confirm call length</span></p>
+    <div class="tsh-pills">
+      <span><i class="tsh-tick">&#10003;</i>Functional blood analysis</span>
+      <span><i class="tsh-tick">&#10003;</i>Personalised protocols</span>
+      <span><i class="tsh-tick">&#10003;</i>Weekly 1:1 support</span>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="pv-col"><div class="pv-photo" style="aspect-ratio:4 / 5"><span>GHL Image element<br><b>Hero photo, 4:5 (1200 &times; 1500px)</b></span></div></div>
+  </div>
+</section>
+<div class="tsh">
+<style>
+.tsh-sym{display:flex;gap:16px;align-items:flex-start;padding:26px 24px;border-radius:20px;background:#fff;border:1px solid var(--line-light);transition:transform .25s ease,box-shadow .25s ease}
+.tsh-sym:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(74,93,69,.45)}
+.tsh-sym b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--lilac);display:flex;align-items:center;justify-content:center;font-size:15px}
+.tsh-sym h3{font-size:18px;margin-bottom:4px}
+.tsh-sym p{font-size:15px;opacity:.82;line-height:1.5}
+.tsh-turn{margin-top:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;background:var(--moss);color:var(--butter);border-radius:28px;padding:56px}
+.tsh-turn .tsh-quote{color:var(--butter)}
+.tsh-turn .tsh-quote-by{display:block;margin-top:16px;font-size:12px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--lilac);font-style:normal}
+.tsh-turn p{font-size:17px}
+@media (max-width:767px){.tsh-turn{grid-template-columns:1fr;padding:36px 26px;gap:28px;margin-top:44px}}
+</style>
+<section class="tsh-sec tsh-linen">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-center tsh-narrow tsh-reveal">
+      <span class="tsh-eyebrow">Sound familiar?</span>
+      <h2>You know something&rsquo;s <em>off.</em><br>You just can&rsquo;t pin it down.</h2>
+      <p class="tsh-lede">You&rsquo;re doing all the &lsquo;right&rsquo; things, but your body isn&rsquo;t playing along. If any of these feel like you, you&rsquo;re in the right place.</p>
+    </div>
+    <div class="tsh-grid tsh-g3 tsh-reveal">
+      <div class="tsh-sym"><b>&#9790;</b><div><h3>Exhausted, even after sleep</h3><p>You wake up tired and run on coffee until the 3pm crash.</p></div></div>
+      <div class="tsh-sym"><b>&#10047;</b><div><h3>Bloating that won&rsquo;t quit</h3><p>Your stomach changes shape through the day and food feels like guesswork.</p></div></div>
+      <div class="tsh-sym"><b>&#9788;</b><div><h3>Hormones all over the place</h3><p>Painful or irregular cycles, PMS, mood swings, or perimenopause chaos.</p></div></div>
+      <div class="tsh-sym"><b>&#9651;</b><div><h3>Weight that won&rsquo;t shift</h3><p>You eat well and move often, yet nothing changes on the scale or in your clothes.</p></div></div>
+      <div class="tsh-sym"><b>&#10022;</b><div><h3>Foggy, flat or anxious</h3><p>Brain fog, low mood and a short fuse that just doesn&rsquo;t feel like you.</p></div></div>
+      <div class="tsh-sym"><b>&#10070;</b><div><h3>Told &lsquo;your bloods are normal&rsquo;</h3><p>You&rsquo;ve had tests, but you still feel far from your best.</p></div></div>
+    </div>
+    <div class="tsh-turn tsh-reveal">
+      <div>
+        <p class="tsh-quote">&lsquo;I&rsquo;ve tried everything and nothing works.&rsquo;</p>
+        <span class="tsh-quote-by">What most women tell us on their first call</span>
+      </div>
+      <div>
+        <p><strong>You&rsquo;re not broken, and it&rsquo;s not in your head.</strong> Most approaches look at one symptom at a time. Your body doesn&rsquo;t work that way.</p>
+        <p>Your energy, gut, hormones and mood are all connected. When you look at the full 360&deg; picture, the answers start to make sense.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tsh">
+<style>
+.tsh-pillar{position:relative;padding:40px 32px 36px}
+.tsh-pillar .tsh-big{position:absolute;top:22px;right:26px;font-size:64px;font-weight:200;letter-spacing:-.05em;opacity:.18;line-height:1}
+.tsh-compare{margin-top:72px;border-radius:28px;overflow:hidden;border:1px solid var(--line-dark)}
+.tsh-compare-row{display:grid;grid-template-columns:1fr 1fr}
+.tsh-compare-row>div{padding:20px 28px;font-size:16px;border-top:1px solid var(--line-dark)}
+.tsh-compare-row>div:first-child{opacity:.72}
+.tsh-compare-row>div:last-child{background:rgba(230,200,242,.1)}
+.tsh-compare-head>div{border-top:0;font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding-top:24px;padding-bottom:24px}
+.tsh-compare-head>div:last-child{color:var(--lilac)}
+.tsh-x,.tsh-y{display:inline-block;width:22px;margin-right:6px;font-weight:700}
+.tsh-y{color:var(--lilac)}
+@media (max-width:767px){.tsh-compare-row>div{padding:16px 16px;font-size:14px}.tsh-compare-head>div{font-size:10px;letter-spacing:.14em}.tsh-compare{margin-top:48px}}
+</style>
+<section class="tsh-sec tsh-moss" id="approach">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-reveal" style="max-width:760px">
+      <span class="tsh-eyebrow">The Three Sixty approach</span>
+      <h2>We don&rsquo;t chase symptoms. <em>We find the cause.</em></h2>
+      <p class="tsh-lede">Three steps, one complete picture. Everything you do is tailored to your body, your results and your life.</p>
+    </div>
+    <div class="tsh-grid tsh-g3 tsh-reveal">
+      <div class="tsh-card tsh-pillar">
+        <span class="tsh-big">01</span>
+        <div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.6 6 11.3a6 6 0 0 1-12 0c0-4.7 6-11.3 6-11.3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
+        <h3>Test, don&rsquo;t guess</h3>
+        <p>We read your blood work against <strong>functional ranges</strong>, not just the wide &lsquo;normal&rsquo; lab ranges, to catch the early imbalances that are often missed.</p>
+      </div>
+      <div class="tsh-card tsh-pillar">
+        <span class="tsh-big">02</span>
+        <div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.2-6.1C9.5 14.4 12 13 13 12"/></svg></div>
+        <h3>A plan that fits your life</h3>
+        <p>A personalised, phased protocol covering nutrition, lifestyle and targeted supplements. Simple, realistic steps. No extremes, no food fear.</p>
+      </div>
+      <div class="tsh-card tsh-pillar">
+        <span class="tsh-big">03</span>
+        <div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Support every week</h3>
+        <p>Weekly check-ins keep you accountable, celebrate your wins and fine-tune your plan as your body changes. You&rsquo;re never doing this alone.</p>
+      </div>
+    </div>
+    <div class="tsh-compare tsh-reveal" role="table" aria-label="Standard care compared with Three Sixty Health">
+      <div class="tsh-compare-row tsh-compare-head" role="row"><div role="columnheader">The usual approach</div><div role="columnheader">The Three Sixty approach</div></div>
+      <div class="tsh-compare-row" role="row"><div role="cell"><span class="tsh-x">&times;</span>A rushed 10-minute appointment</div><div role="cell"><span class="tsh-y">&#10003;</span>Time to hear your full story</div></div>
+      <div class="tsh-compare-row" role="row"><div role="cell"><span class="tsh-x">&times;</span>&lsquo;Your bloods are normal&rsquo;</div><div role="cell"><span class="tsh-y">&#10003;</span>Results read against functional ranges</div></div>
+      <div class="tsh-compare-row" role="row"><div role="cell"><span class="tsh-x">&times;</span>One symptom treated at a time</div><div role="cell"><span class="tsh-y">&#10003;</span>Gut, hormones, energy and mood together</div></div>
+      <div class="tsh-compare-row" role="row"><div role="cell"><span class="tsh-x">&times;</span>Generic diet sheets</div><div role="cell"><span class="tsh-y">&#10003;</span>A protocol built around you</div></div>
+      <div class="tsh-compare-row" role="row"><div role="cell"><span class="tsh-x">&times;</span>Left to figure it out alone</div><div role="cell"><span class="tsh-y">&#10003;</span>Weekly 1:1 check-ins</div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<section class="pv-photo-sec" style="background:#F7F1E8;--pt:128px;--pb:128px">
+  <div class="pv-row" style="grid-template-columns:42fr 58fr">
+    <div class="pv-col"><div class="pv-photo" style="aspect-ratio:4 / 5"><span>GHL Image element<br><b>Portrait of Ash, 4:5 (1200 &times; 1500px)</b></span></div></div>
+    <div class="pv-col"><!-- About Ash: RIGHT column of the About photo section (section background #F7F1E8). Left column = GHL Image element (portrait). -->
+<div class="tsh tsh-linen" id="about" style="background:transparent">
+<style>
+.tsh-sign{margin-top:32px;font-size:30px;font-style:italic;font-weight:300;letter-spacing:-.02em;color:var(--terra)}
+.tsh-creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tsh-creds span{font-size:13px;font-weight:400;padding:8px 14px;border-radius:999px;border:1px solid var(--line-light);background:#fff}
+</style>
+  <div class="tsh-reveal">
+    <span class="tsh-eyebrow">Meet your practitioner</span>
+    <h2>Hi, I&rsquo;m Ash. <em>I&rsquo;ve been where you are.</em></h2>
+    <p>I know what it&rsquo;s like to feel exhausted, uncomfortable in your own body and dismissed when you ask for help. <span class="tbc">Add 1&ndash;2 lines of your personal story</span></p>
+    <p>That&rsquo;s why I built Three Sixty Health: a space where women are listened to properly, tested properly and given a plan that fits their real life. No cookie-cutter meal plans. No endless supplement lists. Just clear answers and support until you feel like yourself again.</p>
+    <p>I combine functional blood analysis with personalised nutrition and lifestyle coaching, so every recommendation is based on <em>your</em> body, not guesswork.</p>
+    <div class="tsh-creds">
+      <span>Functional Nutritionist</span>
+      <span>Women&rsquo;s health focus</span>
+      <span class="tbc">Add qualification</span>
+    </div>
+    <p class="tsh-sign">Ash</p>
+  </div>
+</div>
+</div>
+  </div>
+</section>
+<div class="tsh">
+<style>
+.tsh-svc{display:flex;flex-direction:column;background:var(--linen);border-radius:26px;padding:40px 32px;border:1px solid transparent;transition:transform .25s ease,box-shadow .25s ease}
+.tsh-svc:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(59,74,55,.6)}
+.tsh-svc h3{font-size:26px;margin-bottom:12px}
+.tsh-svc .tsh-for{font-size:15px;font-style:italic;font-weight:300;margin-bottom:22px;opacity:.9}
+.tsh-svc ul{list-style:none;margin:0 0 30px;display:grid;gap:12px;font-size:15px}
+.tsh-svc li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.tsh-svc li .tsh-tick{margin-top:1px}
+.tsh-svc .tsh-price{margin-top:auto;padding-top:22px;border-top:1px solid var(--line-light);font-size:14px;margin-bottom:20px}
+.tsh-svc .tsh-btn{width:100%}
+.tsh-svc-feature{background:var(--moss);color:var(--butter)}
+.tsh-svc-feature .tsh-tick{background:var(--lilac);color:var(--moss)}
+.tsh-svc-feature .tsh-price{border-color:var(--line-dark)}
+.tsh-badge{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:var(--lilac);color:var(--moss);padding:7px 12px;border-radius:999px;margin-bottom:22px}
+.tsh-badge-soft{background:var(--euc)}
+@media (min-width:981px){.tsh-svc-feature{transform:translateY(-14px)}.tsh-svc-feature:hover{transform:translateY(-18px)}}
+</style>
+<section class="tsh-sec tsh-euc" id="services">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-center tsh-narrow tsh-reveal">
+      <span class="tsh-eyebrow">Ways to work together</span>
+      <h2>Support that meets you <em>where you are.</em></h2>
+      <p class="tsh-lede">Not sure which is right for you? Start with a free discovery call and we&rsquo;ll point you in the right direction.</p>
+    </div>
+    <div class="tsh-grid tsh-g3 tsh-reveal" style="align-items:stretch">
+      <div class="tsh-svc">
+        <span class="tsh-badge tsh-badge-soft">Start here</span>
+        <h3>Discovery Call</h3>
+        <p class="tsh-for">For women who want to know if this is the right fit.</p>
+        <ul>
+          <li><i class="tsh-tick">&#10003;</i>Talk through your symptoms and goals</li>
+          <li><i class="tsh-tick">&#10003;</i>Get clarity on what could be driving them</li>
+          <li><i class="tsh-tick">&#10003;</i>Hear which option suits you best</li>
+        </ul>
+        <p class="tsh-price"><strong>Free</strong> &middot; 20 minutes, online <span class="tbc">confirm</span></p>
+        <a class="tsh-btn" href="#">Book my free call</a>
+      </div>
+      <div class="tsh-svc tsh-svc-feature">
+        <span class="tsh-badge">Signature program</span>
+        <h3>1:1 Functional Nutrition Coaching</h3>
+        <p class="tsh-for">For women ready for lasting change with support at every step.</p>
+        <ul>
+          <li><i class="tsh-tick">&#10003;</i>In-depth initial consult and health history</li>
+          <li><i class="tsh-tick">&#10003;</i>Functional blood analysis</li>
+          <li><i class="tsh-tick">&#10003;</i>Personalised, phased nutrition and lifestyle protocol</li>
+          <li><i class="tsh-tick">&#10003;</i>Weekly check-ins with written feedback</li>
+          <li><i class="tsh-tick">&#10003;</i>Protocol reviews as your body changes</li>
+        </ul>
+        <p class="tsh-price"><span class="tbc">Add program length and investment</span></p>
+        <a class="tsh-btn" href="#">Apply via a discovery call</a>
+      </div>
+      <div class="tsh-svc">
+        <span class="tsh-badge tsh-badge-soft">One-off deep dive</span>
+        <h3>Functional Blood Analysis</h3>
+        <p class="tsh-for">For women who want answers from the bloods they already have.</p>
+        <ul>
+          <li><i class="tsh-tick">&#10003;</i>Your results checked against functional ranges</li>
+          <li><i class="tsh-tick">&#10003;</i>Clear written summary of what&rsquo;s flagged and why</li>
+          <li><i class="tsh-tick">&#10003;</i>Results consult with practical next steps</li>
+        </ul>
+        <p class="tsh-price"><span class="tbc">Add investment</span></p>
+        <a class="tsh-btn" href="#">Get my bloods analysed</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tsh">
+<style>
+.tsh-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;counter-reset:step}
+.tsh-steps::before{content:"";position:absolute;top:31px;left:32px;right:32px;height:1px;background:var(--line-dark)}
+.tsh-step{position:relative}
+.tsh-step-dot{width:62px;height:62px;border-radius:50%;background:var(--moss);border:1px solid var(--lilac);color:var(--lilac);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;margin-bottom:28px;position:relative}
+.tsh-step:first-child .tsh-step-dot{background:var(--lilac);color:var(--moss)}
+.tsh-step h3{font-size:20px}
+.tsh-step p{font-size:15px;opacity:.88}
+@media (max-width:980px){
+  .tsh-steps{grid-template-columns:1fr;gap:0}
+  .tsh-steps::before{top:0;bottom:0;left:30px;right:auto;width:1px;height:auto}
+  .tsh-step{display:grid;grid-template-columns:62px 1fr;gap:22px;padding-bottom:36px}
+  .tsh-step:last-child{padding-bottom:0}
+  .tsh-step-dot{margin-bottom:0}
+}
+</style>
+<section class="tsh-sec tsh-moss" id="how">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-reveal" style="max-width:720px">
+      <span class="tsh-eyebrow">How it works</span>
+      <h2>From confused to confident <em>in four steps.</em></h2>
+    </div>
+    <div class="tsh-steps tsh-reveal">
+      <div class="tsh-step"><div class="tsh-step-dot">1</div><div><h3>Book your free call</h3><p>A relaxed chat about what&rsquo;s going on and what you want to feel like. If we&rsquo;re a fit, I&rsquo;ll explain exactly what comes next.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">2</div><div><h3>Deep dive and testing</h3><p>We go through your full health history and your blood work, read against functional ranges, to uncover the root causes.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">3</div><div><h3>Your personal protocol</h3><p>You get a clear, phased plan for food, lifestyle and targeted supplements, built around your results and your routine.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">4</div><div><h3>Check in and refine</h3><p>Weekly check-ins keep you on track. We celebrate the wins and adjust your plan as you start to feel better.</p></div></div>
+    </div>
+    <div class="tsh-btns tsh-reveal" style="margin-top:64px">
+      <a class="tsh-btn" href="#">Start with step one <span class="tsh-arrow">&rarr;</span></a>
+      <span class="tsh-microcopy" style="margin-top:0">Takes 2 minutes to book. No commitment until you’re ready.</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tsh">
+<style>
+.tsh-out{display:flex;gap:18px;align-items:flex-start;padding:8px 0}
+.tsh-out .tsh-icon{flex:none;margin:0;background:var(--euc);width:48px;height:48px;border-radius:14px}
+.tsh-out h3{font-size:19px;margin-bottom:4px}
+.tsh-out p{font-size:15px;opacity:.82;line-height:1.5}
+.tsh-fit{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;margin-top:96px}
+.tsh-fit .tsh-card{padding:44px 40px}
+.tsh-fit h3{font-size:26px;margin-bottom:24px}
+.tsh-fit ul{list-style:none;display:grid;gap:14px}
+.tsh-fit li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.5}
+.tsh-fit .tsh-card-moss .tsh-tick{background:var(--lilac);color:var(--moss)}
+.tsh-no{flex:none;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--moss);font-size:12px;font-style:normal;margin-top:2px}
+@media (max-width:767px){.tsh-fit{grid-template-columns:1fr;margin-top:64px}.tsh-fit .tsh-card{padding:32px 24px}}
+</style>
+<section class="tsh-sec tsh-linen" id="results">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-reveal" style="max-width:720px">
+      <span class="tsh-eyebrow">What changes</span>
+      <h2>Imagine waking up and feeling <em>good.</em></h2>
+      <p class="tsh-lede">When you fix the foundations, everything else gets easier. This is what our clients work towards.</p>
+    </div>
+    <div class="tsh-grid tsh-g3 tsh-reveal" style="gap:36px 40px">
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div><div><h3>Steady, all-day energy</h3><p>No more 3pm crash or relying on caffeine to get through.</p></div></div>
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0" opacity=".5"/></svg></div><div><h3>A calmer gut</h3><p>Less bloating and discomfort, and meals you actually enjoy.</p></div></div>
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><div><h3>More balanced cycles</h3><p>Understand your hormones and work with them, not against them.</p></div></div>
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.9.6A3 3 0 0 1 4.5 16a3 3 0 0 1-.8-5.3A2.5 2.5 0 0 1 7 7a2.5 2.5 0 0 1 2.5-5z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.9.6 3 3 0 0 0 2.6-4.1 3 3 0 0 0 .8-5.3A2.5 2.5 0 0 0 17 7a2.5 2.5 0 0 0-2.5-5z"/></svg></div><div><h3>A clearer mind</h3><p>Lift the fog and feel more like your sharp, patient self.</p></div></div>
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div><h3>Food freedom</h3><p>Confidence with food, without rules, restriction or guilt.</p></div></div>
+      <div class="tsh-out"><div class="tsh-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Answers that last</h3><p>Know your body well enough to stay on track for good.</p></div></div>
+    </div>
+
+    <div class="tsh-fit tsh-reveal">
+      <div class="tsh-card tsh-card-moss">
+        <h3>This is for you if&hellip;</h3>
+        <ul>
+          <li><i class="tsh-tick">&#10003;</i>You&rsquo;re tired of being told everything is &lsquo;normal&rsquo;</li>
+          <li><i class="tsh-tick">&#10003;</i><span>You want to understand the <em>why</em> behind your symptoms</span></li>
+          <li><i class="tsh-tick">&#10003;</i>You&rsquo;re ready to make realistic, consistent changes</li>
+          <li><i class="tsh-tick">&#10003;</i>You value expert, personal support over another app or diet</li>
+          <li><i class="tsh-tick">&#10003;</i>You want to feel like yourself again, for the long term</li>
+        </ul>
+      </div>
+      <div class="tsh-card">
+        <h3>It&rsquo;s not for you if&hellip;</h3>
+        <ul>
+          <li><i class="tsh-no">&times;</i>You want a quick fix or a crash diet</li>
+          <li><i class="tsh-no">&times;</i>You&rsquo;re not ready to change anything just yet</li>
+          <li><i class="tsh-no">&times;</i>You&rsquo;re after a one-size-fits-all meal plan</li>
+          <li><i class="tsh-no">&times;</i>You need urgent medical care (please see your GP)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- Client stories. The quotes below are SAMPLE copy (marked with yellow tags).
+     Replace each one with a real client's words, used with their permission, before publishing. -->
+<div class="tsh">
+<style>
+.tsh-t{display:flex;flex-direction:column;border-radius:24px;padding:36px 32px;background:rgba(247,241,232,.06);border:1px solid var(--line-dark)}
+.tsh-t .tsh-stars{color:var(--lilac);letter-spacing:.2em;font-size:15px;margin-bottom:20px}
+.tsh-t blockquote{font-size:19px;font-style:italic;font-weight:300;line-height:1.5;margin-bottom:28px}
+.tsh-t footer{margin-top:auto;display:flex;align-items:center;gap:14px;font-size:14px}
+.tsh-t footer b{width:44px;height:44px;border-radius:50%;background:var(--lilac);color:var(--moss);display:flex;align-items:center;justify-content:center;font-weight:600}
+.tsh-t footer span{opacity:.75;display:block;font-size:13px}
+.tsh-t-feature{background:var(--butter);color:var(--moss);border-color:transparent}
+.tsh-t-feature .tsh-stars{color:var(--terra)}
+.tsh-t-feature footer b{background:var(--moss);color:var(--butter)}
+</style>
+<section class="tsh-sec tsh-moss" id="stories">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-center tsh-narrow tsh-reveal">
+      <span class="tsh-eyebrow">Client stories</span>
+      <h2>Real women. <em>Real change.</em></h2>
+    </div>
+    <div class="tsh-grid tsh-g3 tsh-reveal">
+      <figure class="tsh-t">
+        <div class="tsh-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&lsquo;For the first time in years I don&rsquo;t need a nap by 3pm. Ash finally explained what my blood work actually meant.&rsquo; <span class="tbc">SAMPLE: replace with a real client quote</span></blockquote>
+        <footer><b>S</b><div>Client name<span>1:1 Coaching client</span></div></footer>
+      </figure>
+      <figure class="tsh-t tsh-t-feature">
+        <div class="tsh-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&lsquo;I came in with bloating, awful PMS and zero energy. The weekly check-ins kept me going and I feel like a different person.&rsquo; <span class="tbc">SAMPLE: replace with a real client quote</span></blockquote>
+        <footer><b>J</b><div>Client name<span>1:1 Coaching client</span></div></footer>
+      </figure>
+      <figure class="tsh-t">
+        <div class="tsh-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&lsquo;Everyone told me my bloods were fine. The analysis showed exactly where to start, and the plan was so easy to follow.&rsquo; <span class="tbc">SAMPLE: replace with a real client quote</span></blockquote>
+        <footer><b>M</b><div>Client name<span>Blood Analysis client</span></div></footer>
+      </figure>
+    </div>
+    <div class="tsh-btns tsh-reveal" style="justify-content:center;margin-top:56px">
+      <a class="tsh-btn" href="#">I want results like these <span class="tsh-arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tsh">
+<style>
+.tsh-faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.tsh-faq details{border-bottom:1px solid var(--line-light)}
+.tsh-faq details:first-child{border-top:1px solid var(--line-light)}
+.tsh-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.tsh-faq summary::-webkit-details-marker{display:none}
+.tsh-faq summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line-light);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;transition:transform .25s ease,background .25s ease}
+.tsh-faq details[open] summary::after{transform:rotate(45deg);background:var(--lilac)}
+.tsh-faq details p{padding:0 56px 26px 0;font-size:16px;opacity:.88}
+@media (max-width:900px){.tsh-faq-grid{grid-template-columns:1fr;gap:32px}.tsh-faq details p{padding-right:0}.tsh-faq summary{font-size:17px}}
+</style>
+<section class="tsh-sec tsh-linen" id="faq">
+  <div class="tsh-wrap tsh-faq-grid">
+    <div class="tsh-reveal">
+      <span class="tsh-eyebrow">FAQ</span>
+      <h2>Questions, <em>answered.</em></h2>
+      <p class="tsh-lede">Still wondering about something? Bring it to your free discovery call. That&rsquo;s what it&rsquo;s for.</p>
+      <div class="tsh-btns"><a class="tsh-btn" href="#">Book a free call</a></div>
+    </div>
+    <div class="tsh-faq tsh-reveal">
+      <details open>
+        <summary>What happens on the discovery call?</summary>
+        <p>We&rsquo;ll chat about your symptoms, history and goals. I&rsquo;ll share what I think could be going on and whether working together makes sense. There&rsquo;s no pressure to sign up.</p>
+      </details>
+      <details>
+        <summary>Do I need recent blood tests?</summary>
+        <p>Recent results are a great starting point. If you don&rsquo;t have any, or they&rsquo;re missing key markers, I&rsquo;ll guide you on what to ask for. <span class="tbc">Confirm how clients get their bloods done</span></p>
+      </details>
+      <details>
+        <summary>What are &lsquo;functional ranges&rsquo;?</summary>
+        <p>Standard lab ranges are built to flag disease, so they&rsquo;re wide. Functional ranges are narrower and help spot early imbalances, which is why you can feel unwell even when your results come back &lsquo;normal&rsquo;.</p>
+      </details>
+      <details>
+        <summary>Are sessions online?</summary>
+        <p>Yes. Consults and check-ins happen online, so you can work with me from home, wherever you are. <span class="tbc">Confirm online/in-person options</span></p>
+      </details>
+      <details>
+        <summary>How soon will I feel a difference?</summary>
+        <p>Everyone is different. Many women notice changes in energy and digestion within the first few weeks, while deeper hormone work takes longer. We track your progress every week.</p>
+      </details>
+      <details>
+        <summary>Can I work with you alongside my GP?</summary>
+        <p>Absolutely. This work complements your medical care. It doesn&rsquo;t replace it. Keep your GP in the loop, and never stop prescribed medication without their advice.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>It depends on the support you need. I&rsquo;ll walk you through the options and investment on your discovery call. <span class="tbc">Or add pricing here</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tsh">
+<style>
+.tsh-final{text-align:center}
+.tsh-final-logo{width:112px;height:112px;border-radius:50%;background:var(--linen);display:flex;align-items:center;justify-content:center;margin:0 auto 36px;padding:8px}
+.tsh-final h2{font-size:clamp(38px,5.6vw,68px);max-width:880px;margin:0 auto 24px}
+.tsh-final .tsh-lede{margin:0 auto}
+.tsh-foot{margin-top:112px;padding-top:40px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:14px}
+.tsh-foot nav{display:flex;flex-wrap:wrap;gap:24px}
+.tsh-foot a{text-decoration:none;opacity:.85}
+.tsh-foot a:hover{opacity:1;text-decoration:underline}
+.tsh-handle{color:var(--lilac)!important;opacity:1!important;letter-spacing:.04em}
+.tsh-disclaimer{margin-top:28px;font-size:12px;font-weight:300;line-height:1.6;opacity:.65;max-width:900px}
+@media (max-width:767px){.tsh-foot{margin-top:72px;flex-direction:column;align-items:flex-start}.tsh-final-logo{width:92px;height:92px}.tsh-disclaimer{padding-bottom:72px}}
+</style>
+<section class="tsh-sec tsh-moss">
+  <div class="tsh-wrap">
+    <div class="tsh-final tsh-center tsh-reveal">
+      <div class="tsh-final-logo"><img src="data:image/png;base64,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" alt="Three Sixty Health"></div>
+      <span class="tsh-eyebrow">Your next step</span>
+      <h2>Your body has been talking. <em>Let&rsquo;s listen.</em></h2>
+      <p class="tsh-lede">Book a free discovery call and leave with more clarity than you&rsquo;ve had in years, whether or not we work together.</p>
+      <div class="tsh-btns">
+        <a class="tsh-btn" href="#">Book your free discovery call <span class="tsh-arrow">&rarr;</span></a>
+      </div>
+      <p class="tsh-microcopy">Free &middot; Online &middot; No obligation</p>
+    </div>
+    <div class="tsh-foot">
+      <span>&copy; <span id="tsh-year">2026</span> Three Sixty Health</span>
+      <nav aria-label="Footer">
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Privacy</a>
+        <a class="tsh-handle" href="https://www.instagram.com/threesixtyhealth_/" target="_blank" rel="noopener">@threesixtyhealth_</a>
+      </nav>
+    </div>
+    <p class="tsh-disclaimer">The information on this website is general in nature and is not medical advice. Three Sixty Health provides functional nutrition and health coaching, which complements but does not replace care from your doctor. Always speak with your GP before changing medication or if you have urgent health concerns. Individual results vary.</p>
+  </div>
+</section>
+<script>(function(){var y=document.getElementById('tsh-year');if(y)y.textContent=new Date().getFullYear()})();</script>
+</div>
+
+</body>
+</html>

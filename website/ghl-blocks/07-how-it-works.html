@@ -1,0 +1,36 @@
+<div class="tsh">
+<style>
+.tsh-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;counter-reset:step}
+.tsh-steps::before{content:"";position:absolute;top:31px;left:32px;right:32px;height:1px;background:var(--line-dark)}
+.tsh-step{position:relative}
+.tsh-step-dot{width:62px;height:62px;border-radius:50%;background:var(--moss);border:1px solid var(--lilac);color:var(--lilac);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;margin-bottom:28px;position:relative}
+.tsh-step:first-child .tsh-step-dot{background:var(--lilac);color:var(--moss)}
+.tsh-step h3{font-size:20px}
+.tsh-step p{font-size:15px;opacity:.88}
+@media (max-width:980px){
+  .tsh-steps{grid-template-columns:1fr;gap:0}
+  .tsh-steps::before{top:0;bottom:0;left:30px;right:auto;width:1px;height:auto}
+  .tsh-step{display:grid;grid-template-columns:62px 1fr;gap:22px;padding-bottom:36px}
+  .tsh-step:last-child{padding-bottom:0}
+  .tsh-step-dot{margin-bottom:0}
+}
+</style>
+<section class="tsh-sec tsh-moss" id="how">
+  <div class="tsh-wrap">
+    <div class="tsh-head tsh-reveal" style="max-width:720px">
+      <span class="tsh-eyebrow">How it works</span>
+      <h2>From confused to confident <em>in four steps.</em></h2>
+    </div>
+    <div class="tsh-steps tsh-reveal">
+      <div class="tsh-step"><div class="tsh-step-dot">1</div><div><h3>Book your free call</h3><p>A relaxed chat about what&rsquo;s going on and what you want to feel like. If we&rsquo;re a fit, I&rsquo;ll explain exactly what comes next.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">2</div><div><h3>Deep dive and testing</h3><p>We go through your full health history and your blood work, read against functional ranges, to uncover the root causes.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">3</div><div><h3>Your personal protocol</h3><p>You get a clear, phased plan for food, lifestyle and targeted supplements, built around your results and your routine.</p></div></div>
+      <div class="tsh-step"><div class="tsh-step-dot">4</div><div><h3>Check in and refine</h3><p>Weekly check-ins keep you on track. We celebrate the wins and adjust your plan as you start to feel better.</p></div></div>
+    </div>
+    <div class="tsh-btns tsh-reveal" style="margin-top:64px">
+      <a class="tsh-btn" href="PASTE-BOOKING-URL-HERE">Start with step one <span class="tsh-arrow">&rarr;</span></a>
+      <span class="tsh-microcopy" style="margin-top:0">Takes 2 minutes to book. No commitment until you’re ready.</span>
+    </div>
+  </div>
+</section>
+</div>

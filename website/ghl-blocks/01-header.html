@@ -1,0 +1,40 @@
+<div class="tsh">
+<style>
+.tsh-header{background:var(--linen);border-bottom:1px solid var(--line-light)}
+.tsh-header .tsh-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:88px}
+.tsh-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.tsh-logo img{width:58px;height:58px}
+.tsh-logo span{font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
+.tsh-nav{display:flex;align-items:center;gap:34px}
+.tsh-nav a{font-size:14px;font-weight:400;text-decoration:none;position:relative}
+.tsh-nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:1.5px;width:0;background:var(--terra);transition:width .25s ease}
+.tsh-nav a:hover::after{width:100%}
+.tsh-header .tsh-btn{padding:13px 22px;font-size:14px;box-shadow:none}
+.tsh-float{display:none}
+@media (max-width:900px){.tsh-nav{display:none}}
+@media (max-width:767px){
+  .tsh-header .tsh-wrap{height:72px}
+  .tsh-logo img{width:48px;height:48px}
+  .tsh-logo span{display:none}
+  .tsh-header .tsh-btn{width:auto;padding:11px 18px;font-size:13px}
+  .tsh-float{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;width:auto!important;box-shadow:0 14px 34px -10px rgba(59,74,55,.55)}
+}
+</style>
+<header class="tsh-header">
+  <div class="tsh-wrap">
+    <a class="tsh-logo" href="#top" aria-label="Three Sixty Health home">
+      <img src="PASTE-LOGO-URL-HERE" alt="Three Sixty Health logo">
+      <span>Three Sixty Health</span>
+    </a>
+    <nav class="tsh-nav" aria-label="Main">
+      <a href="#approach">Our approach</a>
+      <a href="#services">Services</a>
+      <a href="#about">About Ash</a>
+      <a href="#stories">Client stories</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="tsh-btn" href="PASTE-BOOKING-URL-HERE">Book a call</a>
+  </div>
+</header>
+<a class="tsh-btn tsh-float" href="PASTE-BOOKING-URL-HERE">Book your free discovery call <span class="tsh-arrow">&rarr;</span></a>
+</div>
